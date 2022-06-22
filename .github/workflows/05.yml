@@ -18,6 +18,7 @@ jobs:
             pip3 install undetected-chromedriver
         - name: 'run'
           env:
+            URL: ${{ secrets.URL }}
             USER_ID: ${{ secrets.USER_ID }}
             PASS_WD: ${{ secrets.PASS_WD }}
             TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
