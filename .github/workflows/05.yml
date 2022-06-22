@@ -1,4 +1,4 @@
-name: 'update'
+name: 'update05'
 on:
   schedule:
     - cron: '25 5,17 * * *'
