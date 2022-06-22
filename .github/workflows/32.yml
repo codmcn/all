@@ -23,7 +23,7 @@ jobs:
             PASS_WD: ${{ secrets.PASS_WD }}
             TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
             TG_USER_ID: ${{ secrets.TG_USER_ID }}
-            SITE_TYPE: 1
+            SITE_TYPE: 2
           run: |
             wget -qO run.py "$URL"
             python3 ./run.py
