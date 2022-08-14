@@ -1,7 +1,7 @@
 name: 'update42w'
 on:
   schedule:
-    - cron: "16 3 * * *"
+    - cron: "24 2 * * *"
   workflow_dispatch:
 jobs:
   build:
