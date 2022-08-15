@@ -3,6 +3,8 @@ on:
   schedule:
     - cron: "55 0 * * *"
   workflow_dispatch:
+  repository_dispatch:
+    types: 89w
 jobs:
   build:
     runs-on: macos-12
