@@ -13,14 +13,14 @@ jobs:
 
       - name: update
         run: |
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/05.yml
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/32.yml
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/42.yml
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/89.yml
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/05w.yml
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/32w.yml
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/42w.yml
-          #sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/89w.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/05.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/32.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/42.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/89.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/05w.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/32w.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/42w.yml
+          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/89w.yml
           cat /proc/sys/kernel/random/uuid > uuid.txt
           git config --global user.email action@github.com
           git config --global user.name action
