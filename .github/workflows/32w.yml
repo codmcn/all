@@ -22,12 +22,12 @@ jobs:
             pip3 install selenium==4.2.0
         - name: 'run'
           env:
-            URL: ${{ secrets.URL }}
+            WURL: ${{ secrets.WURL }}
             USER_ID: ${{ secrets.USER_ID2 }}
             PASS_WD: ${{ secrets.PASS_WD }}
             TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
             TG_USER_ID: ${{ secrets.TG_USER_ID }}
             SITE_TYPE: 6
           run: |
-            wget -qO run.py "$URL"
+            wget -qO run.py "$WURL"
             python3 ./run.py
