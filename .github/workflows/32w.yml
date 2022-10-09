@@ -13,7 +13,8 @@ jobs:
           uses: actions/checkout@v2
         - name: 'Update Chrome'
           run: |
-            brew reinstall --cask google-chrome
+            brew upgrade --cask google-chrome
+            brew install ffmpeg
         - name: 'Install requirements'
           run: |
             pip3 install -r ./requirements.txt
