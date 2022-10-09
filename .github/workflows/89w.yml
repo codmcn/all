@@ -1,7 +1,7 @@
 name: 'update89w'
 on:
   schedule:
-    - cron: "59 3 * * *"
+    - cron: "11 1 * * *"
   workflow_dispatch:
   repository_dispatch:
     types: 89w
