@@ -24,6 +24,7 @@ jobs:
         - name: 'run'
           env:
             WURL: ${{ secrets.WURL }}
+            URL_BASE: ${{ secrets.URL_BASE_W }}
             USER_ID: ${{ secrets.USER_ID3 }}
             PASS_WD: ${{ secrets.PASS_WD }}
             TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
