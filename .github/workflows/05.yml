@@ -1,7 +1,7 @@
 name: 'update05'
 on:
   schedule:
-    - cron: "29 3 * * *"
+    - cron: "16 2 * * *"
   workflow_dispatch:
   repository_dispatch:
     types: 05
