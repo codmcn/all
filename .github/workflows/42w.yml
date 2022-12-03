@@ -24,7 +24,7 @@ jobs:
       - name: 'Run'
         env:
           URL: ${{ secrets.URL }}
-          URL_BASE: ${{ secrets.URL_BASE_H }}
+          URL_BASE: ${{ secrets.URL_BASE_W }}
           USERNAME: ${{ secrets.USERNAME3 }}
           PASSWORD: ${{ secrets.PASSWORD }}
           BARK_TOKEN: ${{ secrets.BARK_TOKEN }}
