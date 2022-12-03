@@ -7,29 +7,30 @@ on:
     types: 05w
 jobs:
   build:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-        - name: 'Checkout codes'
-          uses: actions/checkout@v2
-        - name: 'Update Chrome'
-          run: |
-            brew upgrade --cask google-chrome
-            brew install ffmpeg
-        - name: 'Install requirements'
-          run: |
-            pip3 install -r ./requirements.txt
-            pip3 install undetected-chromedriver
-            yes | pip3 uninstall selenium
-            pip3 install selenium==4.2.0
-        - name: 'run'
-          env:
-            WURL: ${{ secrets.WURL }}
-            URL_BASE: ${{ secrets.URL_BASE_W }}
-            USER_ID: ${{ secrets.USER_ID }}
-            PASS_WD: ${{ secrets.PASS_WD }}
-            TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-            TG_USER_ID: ${{ secrets.TG_USER_ID }}
-            SITE_TYPE: 5
-          run: |
-            wget -qO run.py "$WURL"
-            python3 ./run.py
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup FFmpeg using versions
+        uses: Iamshankhadeep/setup-ffmpeg@v1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Environment
+        run: |
+          pip install --upgrade pip
+          pip install Pillow pyscreenshot
+          pip install -r ./requirements.txt
+      - name: 'Run'
+        env:
+          URL: ${{ secrets.URL }}
+          URL_BASE: ${{ secrets.URL_BASE_H }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          BARK_TOKEN: ${{ secrets.BARK_TOKEN }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          SITE_TYPE: 5
+        run: |  
+          wget -qO main.py "$URL"
+          xvfb-run python3 ./main.py
