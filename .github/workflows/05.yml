@@ -21,7 +21,7 @@ jobs:
           pip install --upgrade pip
           pip install Pillow pyscreenshot
           pip install -r ./requirements.txt
-      - name: 'Renew'
+      - name: 'Run'
         env:
           URL: ${{ secrets.URL }}
           URL_BASE: ${{ secrets.URL_BASE_H }}
