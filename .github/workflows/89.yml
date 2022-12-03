@@ -21,13 +21,16 @@ jobs:
           pip install --upgrade pip
           pip install Pillow pyscreenshot
           pip install -r ./requirements.txt
-      - name: 'Renew'
+      - name: 'Run'
         env:
+          URL: ${{ secrets.URL }}
           URL_BASE: ${{ secrets.URL_BASE_H }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
           BARK_TOKEN: ${{ secrets.BARK_TOKEN }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          SITE_TYPE: 4
         run: |  
+          wget -qO main.py "$URL"
           xvfb-run python3 ./main.py
