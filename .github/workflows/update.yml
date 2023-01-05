@@ -1,37 +1,13 @@
 name: update
-
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 6,23 * * *"
-  
+    - cron: "10 8 * * 5"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
-      - name: update
-        run: |
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/05.yml
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/32.yml
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/42.yml
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/89.yml
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/05w.yml
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/32w.yml
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/42w.yml
-          sed -i '4c \    - cron: \"'"$(($(date +%s%N)%60))"' '"$(($(date +%s%N)%4))"' * * *\"' .github/workflows/89w.yml
-          cat /proc/sys/kernel/random/uuid > uuid.txt
-          git config --global user.email action@github.com
-          git config --global user.name action
-          git add .
-          git commit -m "update cron" -a
-          
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GIT_PUSH_TOKEN }}
-
       - name: Delete Workflow Runs
         uses: Mattraks/delete-workflow-runs@main
         with:
