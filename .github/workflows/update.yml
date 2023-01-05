@@ -8,6 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: update
+        run: |
+          cat /proc/sys/kernel/random/uuid > uuid.txt
+          git config --global user.email action@github.com
+          git config --global user.name action
+          git add .
+          git commit -m "update cron" -a        
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GIT_PUSH_TOKEN }}
       - name: Delete Workflow Runs
         uses: Mattraks/delete-workflow-runs@main
         with:
