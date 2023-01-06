@@ -1,7 +1,7 @@
 name: 'update32w'
 on:
   schedule:
-    - cron: "30 5 * * 5"
+    - cron: "30 5 */6 * *"
   workflow_dispatch:
   repository_dispatch:
     types: 32w
